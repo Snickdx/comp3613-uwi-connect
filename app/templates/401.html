@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Sign in required · CampusWire{% endblock %}
+
+{% block content %}
+<div class="auth-shell">
+  <div class="netfield" aria-hidden="true"></div>
+  <div class="wave-stack wave-stack-low" aria-hidden="true">
+    <svg class="wave wave-a" viewBox="0 0 2880 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,40 480,40 720,100 S1200,160 1440,100 C1680,40 1920,40 2160,100 S2640,160 2880,100 L2880,200 L0,200 Z" />
+    </svg>
+    <svg class="wave wave-c" viewBox="0 0 2880 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,40 480,40 720,100 S1200,160 1440,100 C1680,40 1920,40 2160,100 S2640,160 2880,100" />
+    </svg>
+  </div>
+  <div class="auth-panel">
+    <div class="brand-wordmark">CampusWire</div>
+    <p class="auth-tagline">Your session expired or you need to sign in.</p>
+    <div class="d-grid">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('login_view') }}">Return to sign in</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

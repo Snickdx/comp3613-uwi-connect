@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}CampusWire{% endblock %}
+
+{% block content %}
+<div class="landing">
+  <div class="netfield" aria-hidden="true"></div>
+  <div class="landing-bands" aria-hidden="true"></div>
+  <div class="wave-stack" aria-hidden="true">
+    <svg class="wave wave-a" viewBox="0 0 2880 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,40 480,40 720,100 S1200,160 1440,100 C1680,40 1920,40 2160,100 S2640,160 2880,100 L2880,200 L0,200 Z" />
+    </svg>
+    <svg class="wave wave-b" viewBox="0 0 2880 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,40 480,40 720,100 S1200,160 1440,100 C1680,40 1920,40 2160,100 S2640,160 2880,100 L2880,200 L0,200 Z" />
+    </svg>
+    <svg class="wave wave-c" viewBox="0 0 2880 200" preserveAspectRatio="none">
+      <path d="M0,100 C240,40 480,40 720,100 S1200,160 1440,100 C1680,40 1920,40 2160,100 S2640,160 2880,100" />
+    </svg>
+  </div>
+
+  <header class="landing-nav">
+    <a class="brand-wordmark" href="{{ url_for('index_view') }}">CampusWire</a>
+    <div class="landing-nav-actions">
+      {% if user_logged_in %}
+      <a class="btn-landing btn-landing-ghost" href="{{ app_home }}">Open boards</a>
+      <a class="btn-landing btn-landing-ghost" href="{{ url_for('logout') }}">Sign out</a>
+      {% else %}
+      <a class="btn-landing btn-landing-ghost" href="{{ url_for('login_view') }}">Sign in</a>
+      <a class="btn-landing btn-landing-primary" href="{{ url_for('register_view') }}">Join</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="landing-hero">
+    <h1 class="brand-wordmark">CampusWire</h1>
+    <p class="landing-lead">
+      Connect alumni boards and campaigns in one place, so every opportunity and announcement reaches the right graduates.
+    </p>
+    <div class="landing-cta">
+      {% if user_logged_in %}
+      <a class="btn-landing btn-landing-primary" href="{{ app_home }}">Continue</a>
+      {% else %}
+      <a class="btn-landing btn-landing-primary" href="{{ url_for('register_view') }}">Create account</a>
+      <a class="btn-landing btn-landing-ghost" href="{{ url_for('login_view') }}">Sign in</a>
+      {% endif %}
+    </div>
+  </main>
+
+  <footer class="landing-foot">
+    <span class="landing-foot-label">Seed accounts after <code>python manage.py init</code></span>
+    <ul class="seed-list">
+      <li><code>admin@uwi.edu</code> / <code>admin-dev</code></li>
+      <li><code>alumni.verified@my.uwi.edu</code> / <code>alumni-dev</code></li>
+      <li><code>alumni.pending@gmail.com</code> / <code>alumni-dev</code></li>
+      <li><code>alumni.fakeuwi@example.com</code> / <code>alumni-dev</code></li>
+    </ul>
+  </footer>
+</div>
+{% endblock %}

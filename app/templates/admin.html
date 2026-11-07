@@ -1,0 +1,14 @@
+{% extends "authenticated-base.html" %}
+{% block title %}Admin · CampusWire{% endblock %}
+
+{% block subpage_content %}
+<h1>Admin</h1>
+<p>
+  Review pending listings, publish to boards, and send alumni campaigns through the API.
+  Admin endpoints expect the <code>X-User-Id</code> header.
+</p>
+<div class="app-actions">
+  <a href="/docs">Open API docs</a>
+  <a class="secondary" href="/api/boards">Browse boards</a>
+</div>
+{% endblock %}
